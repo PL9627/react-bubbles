@@ -6,7 +6,7 @@ const initialColor = {
   code: { hex: "" },
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors, props }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
@@ -24,6 +24,9 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth().put(`/color/${colorToEdit.id}`, colorToEdit)
     .then(res => {
       console.log(res);
+
+      setColorToEdit(res.data);
+      props.history.push("/bubblepage")
     })
     .catch(err => console.log("axios put request err", err))
   };

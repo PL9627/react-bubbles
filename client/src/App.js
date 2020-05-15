@@ -15,11 +15,11 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/colors">Bubble Page</Link>
+            <Link to="/bubblepage">Bubble Page</Link>
           </li>
         </ul>
         <Switch>
-          <PrivateRoute exact path="/colors" component={BubblePage} />
+          <PrivateRoute exact path="/bubblepage" component={BubblePage} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>
