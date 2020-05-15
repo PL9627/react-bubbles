@@ -28,7 +28,7 @@ const Login = (props) => {
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
 
-        props.history.push("/friends");
+        props.history.push("/bubblepage");
       })
       .catch((err) => console.log("login axios post err", err));
   };

@@ -38,6 +38,8 @@ const ColorList = ({ colors, updateColors, props }) => {
       .delete(`/colors/${colorToEdit.id}`)
       .then((res) => {
         console.log(res);
+
+        props.history.push("/bubblepage")
       })
       .catch((err) => console.log("axios delete request err", err));
   };
