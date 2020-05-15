@@ -21,18 +21,25 @@ const ColorList = ({ colors, updateColors, props }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-    axiosWithAuth().put(`/color/${colorToEdit.id}`, colorToEdit)
-    .then(res => {
-      console.log(res);
+    axiosWithAuth()
+      .put(`/color/${colorToEdit.id}`, colorToEdit)
+      .then((res) => {
+        console.log(res);
 
-      setColorToEdit(res.data);
-      props.history.push("/bubblepage")
-    })
-    .catch(err => console.log("axios put request err", err))
+        setColorToEdit(res.data);
+        props.history.push("/bubblepage");
+      })
+      .catch((err) => console.log("axios put request err", err));
   };
 
   const deleteColor = (color) => {
     // make a delete request to delete this color
+    axiosWithAuth
+      .delete(`/colors/${colorToEdit.id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log("axios delete request err", err));
   };
 
   return (
